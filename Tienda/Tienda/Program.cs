@@ -16,6 +16,14 @@
                 Console.WriteLine("2.Conteo de productos");
                 Console.WriteLine("3. total de la compra");
                 int opcion= Convert.ToInt32(Console.ReadLine());
+                switch(opcion)
+                {
+                    case 1:
+                        IngresarProducto();
+                        break;
+
+                        
+                }
 
                 
             }catch (Exception ex)
@@ -35,15 +43,26 @@
 
     static void IngresarProducto()
     {
-        string nomnreProducto;
-        double precioProducto=0;
-        Console.WriteLine("Ingrese el nombre dek Producto");
-        nomnreProducto = Console.ReadLine();
-        productos.Add(nomnreProducto);
-        Console.WriteLine("Ingrse el precio del producto");
-        precios.Add(precioProducto);
+        try
+        {
+            string nomnreProducto;
+            double precioProducto = 0;
+            Console.WriteLine("Ingrese el nombre dek Producto");
+            nomnreProducto = Console.ReadLine();
+            productos.Add(nomnreProducto);
+            Console.WriteLine("Ingrse el precio del producto");
+            precioProducto = Convert.ToDouble(Console.ReadLine());
+            precios.Add(precioProducto);
+        }
+        catch (Exception ex) { 
+            
+            Console.WriteLine("Ha ocurrido un error "+ ex.Message);
+        
+        }
 
     }
+
+
 
 
 
