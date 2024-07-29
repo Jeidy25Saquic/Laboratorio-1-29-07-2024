@@ -31,8 +31,11 @@
                     case 2:
                         ConteoProductos();
                         break;
+                    case 3:
+                            Total();
+                        break;
 
-                        
+
                 }
 
                 
@@ -75,6 +78,16 @@
     static void ConteoProductos()
     {
         Console.WriteLine("La cantidad de productos ingresados es: " + productos.Count);
+
+    }
+    static void Total()
+
+    {   double total = 0;   
+        foreach(double precioUnitario in precios)
+        {
+            total = precioUnitario + precioUnitario;
+        }
+        Console.WriteLine("La suma de productos es: ");
 
     }
 
