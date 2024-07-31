@@ -13,13 +13,16 @@ namespace Segundo_Ejercicio
         int Precio { get; set; }
         int Stock {  get; set; }
          
-        public Producto(string nombre, int precio, int stock) {
+        public Producto() { 
 
+        }
+        public Producto(string nombre, int precio, int stock) {
             Name = nombre;
             Precio = precio;
             Stock = stock;
-        }  
-        
+           
+        }
+
        
         public void Consultar(string nombre)
         {
@@ -29,10 +32,33 @@ namespace Segundo_Ejercicio
             }
             else
             {
-                Console.WriteLine("Nombre del poroducto"+ Name);
+                Console.WriteLine("Nombre del poroducto: "+ Name);
                 Console.WriteLine("Precio" + Precio);
                 Console.WriteLine("Stock: " + Stock);
             }
         }
+
+        public void VentaProducto(string nombreProducto,int cantidad)
+
+        {
+            if (nombreProducto != Name) { Console.WriteLine("No existe el producto"); }
+            else
+            {
+                if (Stock <= 0 || cantidad > Stock)
+                {
+                    Console.WriteLine("No hay cantidad suficiente de productos");
+                }
+                else
+                {
+                    Stock = Stock - cantidad;
+                    Console.WriteLine("Se han vendido " + cantidad + " producto/s");
+                }
+            }
+
+        }
+
+
+
+
     }
 }
