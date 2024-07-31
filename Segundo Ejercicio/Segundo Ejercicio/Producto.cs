@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Segundo_Ejercicio
 {
     public class Producto
     {
         string Name {  get; set; }
-        int Precio { get; set; }
+        double Precio { get; set; }
         int Stock {  get; set; }
          
         public Producto() { 
 
         }
-        public Producto(string nombre, int precio, int stock) {
+        public Producto(string nombre, double precio, int stock) {
             Name = nombre;
             Precio = precio;
             Stock = stock;
@@ -33,7 +34,7 @@ namespace Segundo_Ejercicio
             else
             {
                 Console.WriteLine("Nombre del poroducto: "+ Name);
-                Console.WriteLine("Precio" + Precio);
+                Console.WriteLine("Precio: " + Precio);
                 Console.WriteLine("Stock: " + Stock);
             }
         }
@@ -57,8 +58,39 @@ namespace Segundo_Ejercicio
 
         }
 
+public void RestablecerProducto(string nombreProducto, int cantidad)
+        {
+            if (nombreProducto != Name) { Console.WriteLine("No existe el producto"); }
+            else
+            {
+               
+                
+                    Stock = Stock + cantidad;
+                    Console.WriteLine("Se han agrgado  " + cantidad + " producto/s");
+                
+            }
 
+        }
+
+        public void RestablecerPrecio(string nombreProducto, double precio)
+        {
+            if (nombreProducto != Name) { Console.WriteLine("No existe el producto"); }
+            else
+            {
+
+
+                Precio = precio;
+                Console.WriteLine("El nuevo precio de :  " + nombreProducto + " es: "+ Precio);
+
+            }
+
+        }
 
 
     }
+
+   
+
+
 }
+

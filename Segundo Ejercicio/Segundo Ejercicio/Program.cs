@@ -11,10 +11,12 @@ class Program
 
 
         bool continuar = true;
-        int opcion = 0, precio=0, stock=0;
+        int opcion = 0, stock=0;
+        double precio = 0;
         string nombreProducto="";
+        int cantidad = 0;
         Producto producto = new Producto();
-
+  
 
         do
         {
@@ -22,9 +24,10 @@ class Program
             {
                 Console.WriteLine(" Tienda");
                 Console.WriteLine("1. Ingresar producto");
-                Console.WriteLine("2.Mostrar producto ");
+                Console.WriteLine("2. Mostrar producto ");
                 Console.WriteLine("3. Vender Producto");
-                Console.WriteLine("4. Restablecer");
+                Console.WriteLine("4. Restablecer stock");
+
 
                 opcion = Convert.ToInt32(Console.ReadLine());
                 while (opcion < 1 || opcion > 4)
@@ -36,12 +39,12 @@ class Program
                 switch (opcion)
                 {
                     case 1:
-                        
-                        Console.WriteLine("Nombre del poroducto");
+                         
+                        Console.Write("Nombre del poroducto:");
                         nombreProducto = Console.ReadLine().ToLower();
-                        Console.WriteLine("Precio");
-                        precio = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Stock: ");
+                        Console.Write("Precio: ");
+                        precio = Convert.ToDouble(Console.ReadLine());
+                        Console.Write("Stock: ");
                         stock = Convert.ToInt32(Console.ReadLine());
                         producto = new Producto(nombreProducto, precio,stock); ;
 
@@ -53,15 +56,31 @@ class Program
                         break;
                     case 3:
 
-                        Console.WriteLine("Ingres el nombre del producto que busca ");
-                        string NombreProducto = Console.ReadLine().ToLower();
-                        Console.WriteLine("Ingres la cantidad ");
-                        int cantidad = Convert.ToInt32(Console.ReadLine());
-                        producto.VentaProducto(NombreProducto,cantidad);
+                        Console.Write("Ingres el nombre del producto que busca: ");
+                         nombreProducto = Console.ReadLine().ToLower();
+                        Console.Write("Ingres la cantidad: ");
+                        cantidad = Convert.ToInt32(Console.ReadLine());
+                        producto.VentaProducto(nombreProducto,cantidad);
                         break;
                     case 4:
+                        Console.Write("Ingres el nombre del producto: ");
+                        nombreProducto = Console.ReadLine().ToLower();
+                        Console.Write("Ingres la cantidad: ");
+                         cantidad = Convert.ToInt32(Console.ReadLine());
+                        producto.RestablecerProducto(nombreProducto, cantidad);
 
-                        
+
+                        break;
+
+                        case 5:
+                        Console.Write("Ingres el nombre del producto: ");
+                        nombreProducto = Console.ReadLine().ToLower();
+                        Console.Write("Ingres la cantidad: ");
+                         double precioNuevo = Convert.ToDouble(Console.ReadLine());
+                        producto.RestablecerPrecio(nombreProducto, precioNuevo);
+                        break;
+                        case 6:
+                        continuar = false;
                         break;
 
 
